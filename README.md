@@ -8,3 +8,5 @@
 ### [02.first_React_app_with_TypeScript](./02.first_React_app_with_TypeScript)
 [はじめてつくるReactアプリ with TypeScript （React \+ TypeScript入門シリーズ）](https://www.amazon.co.jp/gp/product/B094Z1R281/ref=ppx_yo_dt_b_d_asin_title_o00?ie=UTF8&psc=1)のテキストに沿って実装したアプリケーションです。
 
+### [03.redux-todo-app](./03.redux-todo-app)
+[【Redux】Reactの状態管理ライブラリ基礎学習 ~第一部~ \- RAKUS Developers Blog \| ラクス エンジニアブログ](https://tech-blog.rakus.co.jp/entry/20221109/redux)のテキストに沿って実装した TODO アプリケーションです。
