@@ -1,0 +1,1 @@
+// Redux で言うところの ActionCreator の役割を果たす。
