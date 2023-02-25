@@ -6,7 +6,11 @@ import { TodoPresenter, TodoPresenterProps } from "./TodoPresenter";
 import { addTodoAction, removeTodoAction, toggleCompleteAction } from "./todoAction";
 import { Todo } from "../../common/todo.type";
 
-export const TodoContainer = () => {
+/**
+ * Todo アプリ全体を構成するコンポーネントです。
+ * @returns 
+ */
+export function TodoContainer(): JSX.Element {
     const todos = useSelector((state: RootState) => state.todos);
 
     // Todo リストの最大 ID を取得する。
@@ -14,29 +18,23 @@ export const TodoContainer = () => {
 
     const dispatch = useDispatch();
 
-    function addTodo(title: string, content: string) {
-        const newTodo: Todo = {
-            id: maxID + 1,
-            title: title,
-            content: content,
-            isCompleted: false,
-        }
-        dispatch(addTodoAction(newTodo));
-    }
-
-    function removeTodo(id: number): void {
-        dispatch(removeTodoAction(id));
-    }
-
-    function toggleComplete(id: number) {
-        dispatch(toggleCompleteAction(id));
-    }
-
     const args: TodoPresenterProps = {
         todos,
-        addTodo,
-        removeTodo,
-        toggleComplete,
+        addTodo(title, content) {
+            const newTodo: Todo = {
+                id: maxID + 1,
+                title: title,
+                content: content,
+                isCompleted: false,
+            }
+            dispatch(addTodoAction(newTodo));
+        },
+        removeTodo(id) {
+            dispatch(removeTodoAction(id));
+        },
+        toggleComplete(id) {
+            dispatch(toggleCompleteAction(id));
+        },
     };
 
     return <TodoPresenter {...args} />
