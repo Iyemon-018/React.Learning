@@ -1,11 +1,11 @@
 // 状態を定義します。
-import { Todo } from "../../common/todo.type";
+import { Todo, TodoStateType } from "../../common/todo.type";
 
 /**
  * アプリケーションの保持する Todo の配列です。
  * @returns Todo リストの情報をすべて返します。
  */
-export const state = {
+export const state: TodoStateType = {
     todos: [
         {
             id: 1,
@@ -18,5 +18,5 @@ export const state = {
             content: "テスト2の内容",
             isCompleted: false,
         }
-    ] as Todo[]
+    ],
 }

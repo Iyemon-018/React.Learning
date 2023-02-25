@@ -1,7 +1,8 @@
 // Action を受けて状態を変更する。
+import { TodoStateType } from "../../common/todo.type";
 import { state as initialState } from "./todoState";
 
-export const todosReducer = (state = initialState, action: any) => {
+export function todosReducer(state = initialState, action: any): TodoStateType {
     switch (action.type) {
         case "ADD":
             return { todos: [...state.todos, action.payload] }
