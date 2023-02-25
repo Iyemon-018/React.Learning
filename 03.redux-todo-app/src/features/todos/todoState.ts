@@ -1,5 +1,5 @@
 // 状態を定義します。
-import { Todo, TodoStateType } from "../../common/todo.type";
+import { TodoStateType } from "../../common/todo.type";
 
 /**
  * アプリケーションの保持する Todo の配列です。

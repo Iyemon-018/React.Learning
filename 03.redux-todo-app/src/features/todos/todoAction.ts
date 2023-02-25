@@ -3,14 +3,28 @@
 import { Todo } from "../../common/todo.type";
 
 /**
+ * Todo タスクを追加する際の Action によって実行する操作を定義します。
+ */
+export type AddTodoActionType = {
+    /**
+     * タイプ名
+     */
+    type: string;
+    /**
+     * 新規追加された Todo タスクオブジェクトです。
+     */
+    task: Todo;
+}
+
+/**
  * Todo を新規追加するための Action　です。
  * @param newTodo 新規追加対象の Todo 情報を設定します。
  * @returns Todo 新規追加アクションを返します。
  */
-export const addTodoAction = (newTodo: Todo) => {
+export function addTodoAction(newTodo: Todo): AddTodoActionType {
     return {
         type: "ADD",
-        payload: newTodo,
+        task: newTodo,
     };
 };
 
