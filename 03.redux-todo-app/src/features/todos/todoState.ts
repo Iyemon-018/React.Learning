@@ -2,11 +2,11 @@
 import { Todo } from "../../common/todo.type";
 
 /**
- * アプリケーションの保持する Todo の配列です。s
+ * アプリケーションの保持する Todo の配列です。
  * @returns Todo リストの情報をすべて返します。
  */
-export const state = (): Todo[] => {
-    return [
+export const state = {
+    todos: [
         {
             id: 1,
             title: "テスト1",
@@ -18,5 +18,5 @@ export const state = (): Todo[] => {
             content: "テスト2の内容",
             isCompleted: false,
         }
-    ]
+    ] as Todo[]
 }
