@@ -1,6 +1,6 @@
 // Action を受けて状態を変更する。
 import { TodoStateType } from "../../common/todo.type";
-import { AddTodoActionType } from "./todoAction";
+import { AddTodoActionType, RemoveTodoActionType, ToggleCompleteActionType } from "./todoAction";
 import { state as initialState } from "./todoState";
 
 /**
@@ -15,13 +15,16 @@ export function todosReducer(state: TodoStateType = initialState, action: any): 
             const addAction = action as AddTodoActionType;
             return { todos: [...state.todos, addAction.task] }
         case "REMOVE":
-            return { todos: state.todos.filter((todo) => todo.id !== action.payload) }
+            const removeAction = action as RemoveTodoActionType;
+            return { todos: state.todos.filter((todo) => todo.id !== removeAction.id) }
         case "TOGGLE_COMPLETE":
+            const toggleAction = action as ToggleCompleteActionType;
             return {
-                todos: state.todos.map((todo) => {
-                    if (todo.id !== action.payload) return todo;
-                    return { ...todo, isCompleted: !todo.isCompleted };
-                })
+                todos: state.todos
+                    .map((todo) => {
+                        if (todo.id !== toggleAction.id) return todo;
+                        return { ...todo, isCompleted: !todo.isCompleted };
+                    })
             }
         default:
             break;
