@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <AppTitle />
-      <Prefectures />
+      <Prefectures onPrefectureChanged={(v) => console.log(`${v.name}: ${v.selected}`)}/>
       <TransitionGraph />
     </div>
   );
