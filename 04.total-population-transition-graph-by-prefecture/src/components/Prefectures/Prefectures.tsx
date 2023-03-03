@@ -11,6 +11,8 @@ export type PrefecturesProps = {
      * 都道府県の選択状態が変更されたときに呼ばれるイベントです。
      */
     onPrefectureChanged: PrefecturesChangedEvent;
+
+    prefectures: Prefecture[];
 }
 
 /**
@@ -21,18 +23,22 @@ export type PrefecturesProps = {
  */
 export const Prefectures = (props: PrefecturesProps) => {
 
-    function handleChanged(name: string, checked: boolean): void {
+    function handleChanged(name: string, code: number, checked: boolean): void {
         props.onPrefectureChanged({
             name: name,
             selected: checked,
-            code: 0,
+            code: code,
         });
     }
 
     return (
         <div>
             <span>都道府県</span>
-            <CheckBoxField name={"北海道"} onChanged={(name, checked) => handleChanged(name, checked)} />
+            {props.prefectures.map(p => {
+                return <CheckBoxField key={p.code}
+                    name={p.name}
+                    onChanged={(name, checked) => handleChanged(name, p.code, checked)} />
+            })}
         </div>
     );
 }

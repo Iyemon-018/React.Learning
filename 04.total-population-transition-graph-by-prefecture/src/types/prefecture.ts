@@ -2,7 +2,7 @@
 /**
  * 都道府県の持つ現在の状態を定義します。
  */
-export type Prefecture = {
+export interface Prefecture {
     /**
      * 都道府県コードです。この値は REST API のやり取りに使用します。
      */
