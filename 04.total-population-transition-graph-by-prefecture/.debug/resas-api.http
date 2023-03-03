@@ -1,0 +1,39 @@
+#
+# RESAS API 呼び出し用の REST CLIENT ファイルです。
+# このファイルでは RESAS API を検証用に呼び出すことを目的としています。
+#
+# API 概要
+# cf. https://opendata.resas-portal.go.jp/docs/api/v1/index.html
+# API 詳細仕様
+# cf. https://opendata.resas-portal.go.jp/docs/api/v1/detail/index.html
+#
+# 使い方
+# ・settings.json で REST CLIENT 用の設定を追加してください。
+# ・使用する環境は任意のものを選択してください。[Ctrl + Alt + E]で選択します。
+# ・使用する環境には次の値を設定してください。
+#   ・token: API アクセス用のトークンです。
+# 設定例)
+# "rest-client.environmentVariables": {
+#     "$shared": {},
+#     "local":{
+#         "token": "{API token}",
+#     }
+# }
+
+@end-point = https://opendata.resas-portal.go.jp
+@content-type = application/json;charset=UTF-8
+
+### 都道府県一覧 取得
+### https://opendata.resas-portal.go.jp/docs/api/v1/prefectures.html
+GET {{end-point}}/api/v1/prefectures HTTP/1.1
+Content-Type: {{content-type}}
+X-API-KEY: {{token}}
+
+### 人口構成 取得
+### https://opendata.resas-portal.go.jp/docs/api/v1/population/composition/perYear.html
+# 取得対象の都道府県コードです。コードがどの都道府県かは「都道府県一覧」を参照してください。
+@pref-code = 1
+
+GET {{end-point}}/api/v1/population/composition/perYear?prefCode={{pref-code}}&cityCode=- HTTP/1.1
+Content-Type: {{content-type}}
+X-API-KEY: {{token}}
