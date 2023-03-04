@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+/*
+  都道府県のチェックボックスを表示するコンテナ
+  グリッド表示で1セルあたりの領域が他のチェックボックスと同じになるようにしている。
+*/
+.prefectures-checkbox-conatiner {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.checkbox-container {
+  margin: 0.5em 0.6em;
+}

@@ -47,11 +47,13 @@ export const CheckBoxField = (props: CheckBoxFieldProps) => {
     }
 
     return (
-        <div>
-            <input type="checkbox"
-                defaultChecked={false}
-                onChange={(e) => handleChangeda(e)} />
-            <label>{props.name}</label>
+        <div className="checkbox-container">
+            <label>
+                <input type="checkbox"
+                    defaultChecked={false}
+                    onChange={(e) => handleChangeda(e)} />
+                {props.name}
+            </label>
         </div>
     );
 }

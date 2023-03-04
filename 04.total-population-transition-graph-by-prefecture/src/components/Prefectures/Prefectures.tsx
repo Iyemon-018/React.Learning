@@ -34,11 +34,13 @@ export const Prefectures = (props: PrefecturesProps) => {
     return (
         <div>
             <span>都道府県</span>
-            {props.prefectures.map(p => {
-                return <CheckBoxField key={p.code}
-                    name={p.name}
-                    onChanged={(name, checked) => handleChanged(name, p.code, checked)} />
-            })}
+            <div className="prefectures-checkbox-conatiner">
+                {props.prefectures.map(p => {
+                    return <CheckBoxField key={p.code}
+                        name={p.name}
+                        onChanged={(name, checked) => handleChanged(name, p.code, checked)} />
+                })}
+            </div>
         </div>
     );
 }
