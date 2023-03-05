@@ -12,5 +12,6 @@
 - React 18.2.0
 - TypeScript 4.9.5
 
-その他は[package.json](./package.json)を参照してください。
-
+### 使用しているパッケージ
+- [React Router - v6.8.2](https://reactrouter.com/en/main)
+- [Highcharts - v10.3.3](https://www.highcharts.com/)

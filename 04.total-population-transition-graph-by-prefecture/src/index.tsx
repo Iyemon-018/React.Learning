@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import { ApiTokenRegister } from './pages/apiTokenRegister/ApiTokenRegister';
+import { DebugHighchart01 } from './pages/debugs/highcharts';
 
 // ルーティングはすべてここに記載する。
 const router = createBrowserRouter(
@@ -12,6 +13,12 @@ const router = createBrowserRouter(
     <>
       <Route path='' element={<ApiTokenRegister />} />
       <Route path='main' element={<App />} />
+
+      {/*
+        以下はデバッグ用に作成したページのルーティングです。
+        URL 書き換えで動くことを前提とした開発用ページのみここに定義しています。
+       */}
+      <Route path='debugs/higtcharts/01' element={<DebugHighchart01 />} />
     </>
   )
 )
