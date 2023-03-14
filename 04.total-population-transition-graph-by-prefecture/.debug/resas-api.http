@@ -34,6 +34,7 @@ X-API-KEY: {{token}}
 # 取得対象の都道府県コードです。コードがどの都道府県かは「都道府県一覧」を参照してください。
 @pref-code = 1
 
-GET {{end-point}}/api/v1/population/composition/perYear?prefCode={{pref-code}}&cityCode=- HTTP/1.1
+# GET {{end-point}}/api/v1/population/composition/perYear?prefCode={{pref-code}}&cityCode=- HTTP/1.1
+GET https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear?prefCode=3&cityCode=- HTTP/1.1
 Content-Type: {{content-type}}
 X-API-KEY: {{token}}
