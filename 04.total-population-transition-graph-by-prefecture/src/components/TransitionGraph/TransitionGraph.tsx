@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
-import { TotalPopulationAggregate } from "../../App";
+import { TotalPopulationAggregate } from "../../types/prefecture";
 
 type TransitionGraphProps = HighchartsReact.Props & {
     aggregates: TotalPopulationAggregate[];
