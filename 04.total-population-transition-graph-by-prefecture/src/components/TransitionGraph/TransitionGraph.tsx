@@ -12,27 +12,56 @@ export const TransitionGraph = (props: TransitionGraphProps) => {
     // props の総人口データが親コンポーネントから書き換えられるので useState にする必要はない。
     // props が変更されるたびに series を書き換えることでグラフが動的に変更されるようになる。
     const chartOptions = {
+        title: {
+            text: ""
+        },
         chart: {
             type: "line"
         },
         xAxis: {
             categories: [] as string[],
-            title: "年数",
+            title: {
+                text: "年度"
+            },
             tickInterval: 5,
         },
         series: [
             { name: "no.1", data: [] as number[][] }
         ],
+    }
+
+    // プロットしたデータのラベルは以下の方法でフォーマットする必要がある。
+    // 上記のオプション設定では出来ない。
+    // それぞれ千の位ごとにカンマ区切りするように設定している。
+    Highcharts.setOptions({
+        yAxis: {
+            title: {
+                text: "人口数"
+            },
+            labels: {
+                formatter: function (): string {
+                    return Highcharts.numberFormat(Number(this.value), 0, '.', ',');
+                }
+            }
+        },
         plotOptions: {
             line: {
                 dataLabels: {
                     enabled: true,
-                    format: '{value:,.0f}',
+                    formatter: function (): string {
+                        return Highcharts.numberFormat(Number(this.y), 0, '.', ',');
+                    }
                 },
                 enableMouseTracking: true,
             }
+        },
+        // ツールチップで表示するプロットデータ
+        tooltip: {
+            formatter: function (): string {
+                return `${this.x}年: ${Highcharts.numberFormat(Number(this.y), 0, '.', ',')} 人`;
+            }
         }
-    }
+    });
 
     chartOptions.series = props.aggregates
         .map(aggregate => {
